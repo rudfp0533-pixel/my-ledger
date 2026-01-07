@@ -1,0 +1,132 @@
+* { box-sizing: border-box; }
+body { margin: 0; font-family: system-ui, -apple-system, "맑은 고딕", sans-serif; background:#f5f3ef; }
+.app { max-width: 420px; margin: 0 auto; padding: 16px; }
+
+.top { display:flex; justify-content:space-between; align-items:center; margin-bottom: 12px; }
+.title { display:flex; gap:10px; align-items:center; }
+.badge { border:2px solid #222; padding:6px 10px; border-radius:6px; font-weight:700; background:#fff; }
+.icon-btn { text-decoration:none; font-size:20px; }
+
+.next-btn { text-decoration:none; font-size:20px; padding:8px 10px; border:2px solid #222; border-radius:8px; background:#fff; }
+
+.date-row { margin: 10px 0 14px; }
+.date { width: 100%; padding: 10px; border:2px solid #222; border-radius:10px; background:#fff; }
+
+.form { display:flex; flex-direction:column; gap:10px; margin-bottom: 16px; }
+.row { display:flex; justify-content:space-between; gap:10px; align-items:center; }
+.row span { width: 90px; font-weight:600; }
+.row input, .row select { flex:1; padding:10px; border:2px solid #222; border-radius:10px; background:#fff; }
+
+.bar-wrap { margin: 8px 0 14px; }
+.bar-label { display:flex; justify-content:space-between; margin-bottom: 8px; }
+.bar { height: 18px; border:2px solid #222; border-radius:10px; background:#fff; overflow:hidden; }
+.bar-fill { height: 100%; background:#222; }
+
+.details { border-top:2px solid #222; padding-top: 10px; }
+.details summary { font-weight:800; cursor:pointer; margin-bottom: 10px; }
+.group { margin: 10px 0; }
+.group h3 { margin: 0 0 8px; }
+.list { list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:8px; }
+.item { display:flex; justify-content:space-between; align-items:center; padding:10px; border:2px solid #222; border-radius:10px; background:#fff; }
+.x { border:none; background:transparent; cursor:pointer; font-size:18px; }
+
+.card { border:2px solid #222; border-radius:12px; background:#fff; padding:14px; }
+.table { margin-top: 10px; display:flex; flex-direction:column; gap:10px; }
+.t-head { display:grid; grid-template-columns: 1.2fr .8fr .7fr 1fr; gap:8px; font-weight:700; }
+.t-row { display:grid; grid-template-columns: 1.2fr .8fr .7fr 1fr; gap:8px; }
+.t-row input, .t-row select { padding:10px; border:2px solid #222; border-radius:10px; }
+.add { padding:10px; border:2px solid #222; border-radius:10px; background:#fff; cursor:pointer; font-weight:700; }
+
+.cat-line{
+  display:flex;
+  gap:10px;
+  flex:1;
+  align-items:center;
+}
+
+.cat-line select{
+  flex: 0 0 140px; /* ✅ 드롭다운 폭 줄임 */
+  padding:10px;
+  border:2px solid #222;
+  border-radius:10px;
+  background:#fff;
+}
+
+.add-mini{
+  padding:10px 14px;
+  border:2px solid #222;
+  border-radius:10px;
+  background:#fff;
+  cursor:pointer;
+  font-weight:700;
+  white-space: nowrap;
+}
+.budget-row{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+  margin: 8px 0 6px;
+}
+
+.budget-right{
+  display:flex;
+  gap:8px;
+  align-items:center;
+}
+
+#budgetInput{
+  width: 150px;
+  padding:10px;
+  border:2px solid #222;
+  border-radius:10px;
+  background:#fff;
+}
+
+.budget-hint{
+  margin: 0 0 10px;
+  font-weight:700;
+}
+.bar { position: relative; }
+
+.bar-fill{
+  position: relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  min-width: 44px; /* 글자 들어갈 최소 폭 */
+}
+
+.bar-text{
+  font-weight: 800;
+  color: #fff;
+  font-size: 12px;
+  white-space: nowrap;
+  padding: 0 8px;
+}
+.bar{
+  position: relative;
+  height: 18px;
+  border:2px solid #222;
+  border-radius:10px;
+  background:#fff;
+  overflow:hidden;
+}
+
+.bar-fill{
+  height: 100%;
+  background:#222;
+}
+
+.bar-text{
+  position: absolute;
+  inset: 0;                 /* 상하좌우 0 = 중앙정렬 쉬움 */
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:800;
+  font-size:12px;
+  white-space:nowrap;
+  color:#222;               /* 기본은 검정 글씨 */
+  pointer-events:none;
+}
