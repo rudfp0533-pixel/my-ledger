@@ -19,8 +19,7 @@
     </header>
 
     <section class="date-row">
-
-     <input type="date" class="date" id="dateInput" />
+      <input type="date" class="date" id="dateInput" />
     </section>
 
     <section class="form">
@@ -35,35 +34,41 @@
       </label>
 
       <label class="row">
-  <span>카테고리</span>
+        <span>결제수단</span>
 
-  <div class="cat-line">
-    <select id="category">
-      <option>식비</option>
-      <option>교통</option>
-      <option>생활</option>
-      <option>기타</option>
-    </select>
+        <div class="payment-stack">
+          <div class="payment-top">
+           <div class="pay-cards" role="group" aria-label="결제수단 선택"> 
+            <button type="button" class="pay-card" data-payment="card">💳 카드</button> 
+            <button type="button" class="pay-card" data-payment="cash">💵 현금</button> 
+            <button type="button" class="pay-card" data-payment="check">💳 체크</button> 
+          </div>
 
-    <button id="addBtn" type="button" class="add-mini">등록</button>
-  </div>
-</label>
+            <button id="addBtn" type="button" class="add-mini">등록</button>
+          </div>
+
+          <div class="sub-row" id="cardPicker" hidden>
+            <div class="chip-wrap" id="cardChips"></div>
+          </div>
+
+          <!-- JS에서 결제수단 값을 넣는 곳 -->
+          <input type="hidden" id="payment" value="" />
+          <input type="hidden" id="cardName" value="" />
+        </div>
+      </label>
     </section>
 
     <section class="bar-wrap">
+      <div class="bar-label">
+        <span>변동지출 진행률</span>
+        <strong id="progressPercent">0%</strong>
+      </div>
 
-   <div class="bar-label">
-    <span>변동지출 진행률</span>
-    <strong id="progressPercent">0%</strong>
-  </div>
-
-  <div class="bar">
-  <div class="bar-fill" id="barFill" style="width: 0%"></div>
-  <span class="bar-text" id="barText">0원</span>
-</div>
-
-
-</section>
+      <div class="bar">
+        <div id="barFill"></div>
+        <div id="barText"></div>
+      </div>
+    </section>
 
     <details class="details" open>
       <summary>상세 지출 내역</summary>
@@ -80,8 +85,7 @@
       <div class="group">
         <h3>변동지출</h3>
         <ul class="list" id="variableList">
-              <!-- 여기에 등록하면 항목이 추가됨 -->
-          
+          <!-- 여기에 등록하면 항목이 추가됨 -->
         </ul>
       </div>
     </details>

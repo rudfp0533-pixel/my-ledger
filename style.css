@@ -1,55 +1,106 @@
 * { box-sizing: border-box; }
-body { margin: 0; font-family: system-ui, -apple-system, "맑은 고딕", sans-serif; background:#f5f3ef; }
-.app { max-width: 420px; margin: 0 auto; padding: 16px; }
 
-.top { display:flex; justify-content:space-between; align-items:center; margin-bottom: 12px; }
-.title { display:flex; gap:10px; align-items:center; }
-.badge { border:2px solid #222; padding:6px 10px; border-radius:6px; font-weight:700; background:#fff; }
-.icon-btn { text-decoration:none; font-size:20px; }
+:root{
+  --barFill: linear-gradient(90deg, #111, #222);
+}
 
-.next-btn { text-decoration:none; font-size:20px; padding:8px 10px; border:2px solid #222; border-radius:8px; background:#fff; }
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "맑은 고딕", sans-serif;
+  background:#f5f3ef;
+}
 
-.date-row { margin: 10px 0 14px; }
-.date { width: 100%; padding: 10px; border:2px solid #222; border-radius:10px; background:#fff; }
+.app {
+  max-width: 420px;
+  margin: 0 auto;
+  padding: 16px;
+}
 
-.form { display:flex; flex-direction:column; gap:10px; margin-bottom: 16px; }
-.row { display:flex; justify-content:space-between; gap:10px; align-items:center; }
-.row span { width: 90px; font-weight:600; }
-.row input, .row select { flex:1; padding:10px; border:2px solid #222; border-radius:10px; background:#fff; }
+/* ===== 상단 ===== */
+.top {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom: 12px;
+}
 
-.bar-wrap { margin: 8px 0 14px; }
-.bar-label { display:flex; justify-content:space-between; margin-bottom: 8px; }
-.bar { height: 18px; border:2px solid #222; border-radius:10px; background:#fff; overflow:hidden; }
-.bar-fill { height: 100%; background:#222; }
-
-.details { border-top:2px solid #222; padding-top: 10px; }
-.details summary { font-weight:800; cursor:pointer; margin-bottom: 10px; }
-.group { margin: 10px 0; }
-.group h3 { margin: 0 0 8px; }
-.list { list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:8px; }
-.item { display:flex; justify-content:space-between; align-items:center; padding:10px; border:2px solid #222; border-radius:10px; background:#fff; }
-.x { border:none; background:transparent; cursor:pointer; font-size:18px; }
-
-.card { border:2px solid #222; border-radius:12px; background:#fff; padding:14px; }
-.table { margin-top: 10px; display:flex; flex-direction:column; gap:10px; }
-.t-head { display:grid; grid-template-columns: 1.2fr .8fr .7fr 1fr; gap:8px; font-weight:700; }
-.t-row { display:grid; grid-template-columns: 1.2fr .8fr .7fr 1fr; gap:8px; }
-.t-row input, .t-row select { padding:10px; border:2px solid #222; border-radius:10px; }
-.add { padding:10px; border:2px solid #222; border-radius:10px; background:#fff; cursor:pointer; font-weight:700; }
-
-.cat-line{
+.title {
   display:flex;
   gap:10px;
-  flex:1;
   align-items:center;
 }
 
-.cat-line select{
-  flex: 0 0 140px; /* ✅ 드롭다운 폭 줄임 */
+.badge {
+  border:2px solid #222;
+  padding:6px 10px;
+  border-radius:6px;
+  font-weight:700;
+  background:#fff;
+}
+
+.icon-btn {
+  text-decoration:none;
+  font-size:20px;
+}
+
+.next-btn {
+  text-decoration:none;
+  font-size:20px;
+  padding:8px 10px;
+  border:2px solid #222;
+  border-radius:8px;
+  background:#fff;
+}
+
+/* ===== 날짜 ===== */
+.date-row { margin: 10px 0 14px; }
+
+.date {
+  width: 100%;
+  padding: 10px;
+  border:2px solid #222;
+  border-radius:10px;
+  background:#fff;
+}
+
+/* ===== 폼 ===== */
+.form{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  margin-bottom:16px;
+}
+
+/* row: 라벨(고정) + 컨트롤(가변) 2열 */
+.row{
+  display:grid;
+  grid-template-columns: 90px 1fr;
+  gap:10px;
+  align-items:center;
+}
+
+.row span{
+  font-weight:600;
+  white-space:nowrap;
+}
+
+.row input, .row select{
+  width:100%;
   padding:10px;
   border:2px solid #222;
   border-radius:10px;
   background:#fff;
+  box-sizing:border-box;
+}
+
+/* 버튼(기본) */
+.add{
+  padding:10px;
+  border:2px solid #222;
+  border-radius:10px;
+  background:#fff;
+  cursor:pointer;
+  font-weight:800;
 }
 
 .add-mini{
@@ -58,9 +109,87 @@ body { margin: 0; font-family: system-ui, -apple-system, "맑은 고딕", sans-s
   border-radius:10px;
   background:#fff;
   cursor:pointer;
-  font-weight:700;
-  white-space: nowrap;
+  font-weight:800;
+  white-space:nowrap;
 }
+
+/* ===== 상세 ===== */
+.details {
+  border-top:2px solid #222;
+  padding-top: 10px;
+}
+
+.details summary {
+  font-weight:900;
+  cursor:pointer;
+  margin-bottom: 10px;
+}
+
+.group { margin: 10px 0; }
+.group h3 { margin: 0 0 8px; }
+
+.list {
+  list-style:none;
+  padding:0;
+  margin:0;
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
+
+.item {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:10px;
+  border:2px solid #222;
+  border-radius:10px;
+  background:#fff;
+}
+
+.x {
+  border:none;
+  background:transparent;
+  cursor:pointer;
+  font-size:18px;
+}
+
+/* ===== 카드(설정 페이지 박스 등) ===== */
+.card {
+  border:2px solid #222;
+  border-radius:12px;
+  background:#fff;
+  padding:14px;
+}
+
+.table {
+  margin-top: 10px;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+
+.t-head {
+  display:grid;
+  grid-template-columns: 1.2fr .8fr .7fr 1fr;
+  gap:8px;
+  font-weight:800;
+}
+
+.t-row {
+  display:grid;
+  grid-template-columns: 1.2fr .8fr .7fr 1fr;
+  gap:8px;
+}
+
+.t-row input, .t-row select {
+  padding:10px;
+  border:2px solid #222;
+  border-radius:10px;
+  background:#fff;
+}
+
+/* ===== 예산(설정) ===== */
 .budget-row{
   display:flex;
   justify-content:space-between;
@@ -85,25 +214,125 @@ body { margin: 0; font-family: system-ui, -apple-system, "맑은 고딕", sans-s
 
 .budget-hint{
   margin: 0 0 10px;
-  font-weight:700;
+  font-weight:800;
 }
-.bar { position: relative; }
 
-.bar-fill{
-  position: relative;
+/* =========================
+   결제수단(탭) + 카드칩(숨김/펼침)
+   ========================= */
+.payment-stack{
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
+
+.payment-top{
   display:flex;
   align-items:center;
-  justify-content:center;
-  min-width: 44px; /* 글자 들어갈 최소 폭 */
+  gap:10px;
 }
 
-.bar-text{
-  font-weight: 800;
-  color: #fff;
-  font-size: 12px;
-  white-space: nowrap;
-  padding: 0 8px;
+/* 결제수단 버튼: 한 줄 + 가로 스크롤 */
+.pay-cards{
+  display:flex;
+  gap:10px;
+  flex-wrap:nowrap;
+  overflow-x:auto;
+  flex:1;
+  min-width:0;
+  padding-bottom:2px;
 }
+
+.pay-card{
+  height:38px;
+  padding:0 12px;
+  border-radius:999px;
+  border:2px solid #222;
+  background:#fff;
+  cursor:pointer;
+  font-weight:900;
+  white-space:nowrap;
+  flex:0 0 auto;
+}
+
+.pay-card.active{
+  background:#111;
+  color:#fff;
+  border-color:#111;
+}
+
+.sub-row{
+  display:flex;
+  gap:10px;
+  align-items:center;
+  padding:8px 0 2px;
+  border-top:1px dashed #ddd;
+  margin-top:2px;
+}
+
+.chip-wrap{
+  display:flex;
+  gap:8px;
+  overflow-x:auto;
+  flex:1;
+  min-width:0;
+  padding-bottom:2px;
+}
+
+.chip{
+  height:34px;
+  padding:0 12px;
+  border-radius:999px;
+  border:2px solid #222;
+  background:#fff;
+  cursor:pointer;
+  white-space:nowrap;
+  font-weight:900;
+  font-size:13px;
+  flex:0 0 auto;
+}
+
+.chip.active{
+  background:#111;
+  color:#fff;
+  border-color:#111;
+}
+
+.chip-manage{
+  height:34px;
+  display:flex;
+  align-items:center;
+  padding:0 12px;
+  border-radius:999px;
+  border:2px solid #222;
+  text-decoration:none;
+  color:inherit;
+  white-space:nowrap;
+  font-weight:900;
+}
+
+/* 포커스 점선(브라우저 기본) 제거 */
+.pay-card:focus,
+.pay-card:focus-visible,
+button:focus,
+button:focus-visible{
+  outline: none !important;
+}
+
+/* 버튼 눌림 느낌 */
+.pay-card:active{
+  transform: scale(0.97);
+}
+
+/* ===== 진행률 바 (✅ 여기 완전 정리본) ===== */
+.bar-wrap { margin: 8px 0 14px; }
+
+.bar-label{
+  display:flex;
+  justify-content:space-between;
+  margin-bottom: 8px;
+}
+
 .bar{
   position: relative;
   height: 18px;
@@ -113,20 +342,138 @@ body { margin: 0; font-family: system-ui, -apple-system, "맑은 고딕", sans-s
   overflow:hidden;
 }
 
-.bar-fill{
-  height: 100%;
-  background:#222;
+/* ✅ 채워지는 바 */
+#barFill{
+  position:absolute;
+  left:0;
+  top:0;
+  height:100%;
+  width:0%;
+  z-index:1;
+  background: var(--barFill);
+  transition: width .25s ease, background .25s ease;
 }
 
-.bar-text{
-  position: absolute;
-  inset: 0;                 /* 상하좌우 0 = 중앙정렬 쉬움 */
+/* ✅ 가운데 텍스트 */
+#barText{
+  position:absolute;
+  inset:0;
+  z-index:2;
   display:flex;
   align-items:center;
   justify-content:center;
   font-weight:800;
   font-size:12px;
   white-space:nowrap;
-  color:#222;               /* 기본은 검정 글씨 */
   pointer-events:none;
+  color:#222; /* 기본 글씨색 */
+}
+
+/* ===== 설정: 자주 쓰는 카드 ===== */
+.subtext{
+  margin:6px 0 12px;
+  opacity:.75;
+  font-size:13px;
+  line-height:1.4;
+}
+
+.fav-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin:8px 0;
+}
+
+.mini{
+  height:34px;
+  padding:0 12px;
+  border-radius:12px;
+  border:2px solid #222;
+  background:#fff;
+  cursor:pointer;
+  white-space:nowrap;
+  font-weight:800;
+}
+
+.fav-list{
+  list-style:none;
+  padding:0;
+  margin:0;
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
+
+.fav-item{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  padding:10px 12px;
+  border-radius:14px;
+  border:2px solid #222;
+  background:#fff;
+}
+
+.fav-tag{
+  font-weight:900;
+  white-space:nowrap;
+}
+
+.fav-actions{
+  display:flex;
+  gap:8px;
+  align-items:center;
+}
+
+.star{
+  height:34px;
+  padding:0 10px;
+  border-radius:12px;
+  border:2px solid #222;
+  background:#fff;
+  cursor:pointer;
+  font-weight:900;
+}
+
+.star.active{
+  background:#111;
+  color:#fff;
+  border-color:#111;
+}
+
+.del{
+  height:34px;
+  padding:0 10px;
+  border-radius:12px;
+  border:2px solid #222;
+  background:#fff;
+  cursor:pointer;
+  font-weight:900;
+}
+
+.type-line{
+  display:flex;
+  gap:10px;
+  margin:10px 0;
+}
+
+.type-btn{
+  flex:1;
+  height:40px;
+  border-radius:12px;
+  border:2px solid #222;
+  background:#fff;
+  cursor:pointer;
+  font-weight:900;
+}
+
+.type-btn.active{
+  background:#111;
+  color:#fff;
+  border-color:#111;
+}
+
+#barText{
+  text-shadow: 0 1px 1px rgba(0,0,0,.25);
 }
